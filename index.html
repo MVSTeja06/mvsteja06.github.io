@@ -1,0 +1,1805 @@
+<html lang="en">
+  <link type="text/css" rel="stylesheet" id="dark-mode-general-link" />
+  <link type="text/css" rel="stylesheet" id="dark-mode-custom-link" /><style
+    lang="en"
+    type="text/css"
+    id="dark-mode-custom-style"
+  ></style
+  ><head>
+    <title>MVS Teja's portfolio</title>
+    <meta charset="utf-8" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex" />
+    <style>
+      body {
+        padding: constant(safe-area-inset-top) constant(safe-area-inset-right)
+          constant(safe-area-inset-bottom) constant(safe-area-inset-left); /* iOS 11.0 */
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left); /* iOS 11.2 */
+      }
+    </style>
+    <style type="text/css">
+      .react-grid-Header {
+        box-shadow: 0px 0px 4px 0px #dddddd;
+        background: #f9f9f9;
+      }
+      .react-grid-Header--resizing {
+        cursor: ew-resize;
+      }
+      .react-grid-HeaderRow {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .react-grid-HeaderCell {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: #f9f9f9;
+        padding: 8px;
+        font-weight: bold;
+        border-right: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+      }
+      .react-grid-HeaderCell__value {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .react-grid-HeaderCell__resizeHandle:hover {
+        cursor: ew-resize;
+        background: #dddddd;
+      }
+      .react-grid-HeaderCell--frozen:last-of-type {
+        box-shadow: 2px 0 5px -2px rgba(136, 136, 136, 0.3);
+      }
+      .react-grid-HeaderCell--resizing .react-grid-HeaderCell__resizeHandle {
+        background: #dddddd;
+      }
+      .react-grid-HeaderCell__draggable {
+        cursor: col-resize;
+      }
+      .rdg-can-drop > .react-grid-HeaderCell {
+        background: #ececec;
+      }
+
+      .react-grid-HeaderCell .Select {
+        max-height: 30px;
+        font-size: 12px;
+        font-weight: normal;
+      }
+
+      .react-grid-HeaderCell .Select-control {
+        max-height: 30px;
+        border: 1px solid #cccccc;
+        color: #555;
+        border-radius: 3px;
+      }
+
+      .react-grid-HeaderCell .is-focused:not(.is-open) > .Select-control {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+          0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+          0 0 8px rgba(102, 175, 233, 0.6);
+      }
+
+      .react-grid-HeaderCell .Select-control .Select-placeholder {
+        line-height: 20px;
+        color: #999;
+        padding: 4px;
+      }
+
+      .react-grid-HeaderCell .Select-control .Select-input {
+        max-height: 28px;
+        padding: 4px;
+        margin-left: 0px;
+      }
+
+      .react-grid-HeaderCell .Select-control .Select-input input {
+        padding: 0px;
+        height: 100%;
+      }
+
+      .react-grid-HeaderCell .Select-control .Select-arrow-zone .Select-arrow {
+        border-color: gray transparent transparent;
+        border-width: 4px 4px 2.5px;
+      }
+
+      .react-grid-HeaderCell .Select-control .Select-value {
+        padding: 4px;
+        line-height: 20px !important;
+      }
+
+      .react-grid-HeaderCell .Select--multi .Select-control .Select-value {
+        padding: 0px;
+        line-height: 16px !important;
+        max-height: 20px;
+      }
+
+      .react-grid-HeaderCell
+        .Select--multi
+        .Select-control
+        .Select-value
+        .Select-value-icon {
+        max-height: 20px;
+      }
+
+      .react-grid-HeaderCell
+        .Select--multi
+        .Select-control
+        .Select-value
+        .Select-value-label {
+        max-height: 20px;
+      }
+
+      .react-grid-HeaderCell .Select-control .Select-value .Select-value-label {
+        color: #555555 !important;
+      }
+
+      .react-grid-HeaderCell .Select-menu-outer {
+        z-index: 2;
+      }
+
+      .react-grid-HeaderCell .Select-menu-outer .Select-option {
+        padding: 4px;
+        line-height: 20px;
+      }
+
+      .react-grid-HeaderCell
+        .Select-menu-outer
+        .Select-menu
+        .Select-option.is-selected {
+        color: #555555;
+      }
+
+      .react-grid-HeaderCell
+        .Select-menu-outer
+        .Select-menu
+        .Select-option.is-focused {
+        color: #555555;
+      }
+    </style>
+    <style type="text/css">
+      .react-grid-Cell {
+        background-color: #ffffff;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .rdg-selected {
+        border: 2px solid #66afe9;
+      }
+
+      .rdg-selected-range {
+        border: 1px solid #66afe9;
+        background-color: #66afe930;
+      }
+
+      .moving-element {
+        will-change: transform;
+      }
+      .react-grid-Cell--frozen {
+        /* Should have a higher value than 1 to show in front of cell masks */
+        z-index: 2;
+      }
+      .rdg-last--frozen {
+        border-right: 1px solid #dddddd;
+        box-shadow: 2px 0 5px -2px rgba(136, 136, 136, 0.3) !important;
+      }
+
+      /* cell which have tooltips need to have a higher z-index on hover so that the tooltip appears above the other cells*/
+      .react-grid-Cell.has-tooltip:hover {
+        z-index: 1;
+      }
+
+      .react-grid-Cell.react-grid-Cell--frozen.has-tooltip:hover {
+        z-index: 3;
+      }
+
+      .react-contextmenu--visible {
+        z-index: 1000;
+      }
+
+      .react-grid-Cell:not(.editing) .react-grid-Cell__value {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: inherit;
+      }
+
+      .react-grid-Cell.readonly {
+        background-color: black;
+      }
+
+      .react-grid-Cell:hover {
+        background: #eee;
+      }
+
+      .react-grid-cell .form-control-feedback {
+        color: #a94442;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        z-index: 1000000;
+        display: block;
+        width: 34px;
+        height: 34px;
+      }
+
+      .react-grid-Row.row-selected .react-grid-Cell {
+        background-color: #dbecfa;
+      }
+
+      .react-grid-Cell.editing {
+        padding: 0;
+        overflow: visible !important;
+      }
+
+      .react-grid-Cell.editing .has-error input {
+        border: 2px red solid !important;
+        border-radius: 2px !important;
+      }
+
+      .react-grid-Cell__value ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        display: inline-block;
+      }
+
+      .react-grid-Cell__value .btn-sm {
+        padding: 0;
+      }
+
+      .cell-tooltip .cell-tooltip-text {
+        white-space: normal;
+        visibility: hidden;
+        width: 150px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        top: 50%;
+        bottom: initial;
+        left: 50%;
+        margin-top: 15px;
+        margin-left: -75px;
+      }
+
+      .cell-tooltip:hover .cell-tooltip-text {
+        visibility: visible;
+        opacity: 0.8;
+      }
+
+      .cell-tooltip .cell-tooltip-text::after {
+        content: " ";
+        position: absolute;
+        bottom: 100%; /* At the top of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+
+      .react-grid-Canvas.opaque
+        .react-grid-Cell.cell-tooltip:hover
+        .cell-tooltip-text {
+        visibility: hidden;
+      }
+
+      .rdg-cell-expand {
+        float: right;
+        display: table;
+        height: 100%;
+      }
+
+      .rdg-cell-expand > span {
+        display: table-cell;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+
+      .rdg-child-row-action-cross:before,
+      rdg-child-row-action-cross:after,
+      .rdg-child-row-action-cross-last:before,
+      rdg-child-row-action-cross-last:after {
+        content: "";
+        position: absolute;
+        background: grey;
+        height: 50%;
+      }
+
+      .rdg-child-row-action-cross:before {
+        left: 21px;
+        width: 1px;
+        height: 100%;
+      }
+
+      .rdg-child-row-action-cross-last:before {
+        left: 21px;
+        width: 1px;
+      }
+
+      .rdg-child-row-action-cross:after,
+      .rdg-child-row-action-cross-last:after {
+        top: 50%;
+        left: 20px;
+        height: 1px;
+        width: 15px;
+        content: "";
+        position: absolute;
+        background: grey;
+      }
+
+      .rdg-child-row-action-cross:hover {
+        background: red;
+      }
+      .rdg-child-row-btn {
+        position: absolute;
+        cursor: pointer;
+        border: 1px solid grey;
+        border-radius: 14px;
+        z-index: 2;
+        background: white;
+      }
+
+      .rdg-child-row-btn div {
+        font-size: 12px;
+        text-align: center;
+        line-height: 19px;
+        color: grey;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 60%;
+        left: 53%;
+        margin-top: -10px;
+        margin-left: -10px;
+      }
+
+      .rdg-empty-child-row:hover .glyphicon-plus-sign {
+        color: green;
+      }
+
+      .rdg-empty-child-row:hover a {
+        color: green;
+      }
+
+      .rdg-child-row-btn .glyphicon-remove-sign:hover {
+        color: red;
+      }
+
+      .last-column .cell-tooltip-text {
+        right: 100%;
+        left: 0% !important;
+      }
+
+      .rdg-cell-action {
+        float: right;
+        height: 100%;
+      }
+
+      .rdg-cell-action-last {
+        margin-right: -8px;
+      }
+
+      .rdg-cell-action-button {
+        width: 35px;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        display: table;
+        color: #4a9de2;
+      }
+
+      .rdg-cell-action-button > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .rdg-cell-action-button:hover,
+      .rdg-cell-action-button-toggled {
+        color: #447bbb;
+      }
+
+      .rdg-cell-action-menu {
+        position: absolute;
+        top: 100%;
+        z-index: 1000;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 3px 0 #ccc;
+      }
+
+      .rdg-cell-action-menu > span {
+        display: block;
+        padding: 3px 10px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+      }
+
+      .rdg-cell-action-menu > span:hover {
+        color: #262626;
+        text-decoration: none;
+        background-color: #f5f5f5;
+      }
+    </style>
+    <style type="text/css">
+      .react-grid-Row:hover .react-grid-Cell,
+      .react-grid-Row.row-context-menu .react-grid-Cell {
+        background-color: #f9f9f9;
+      }
+
+      .react-grid-Row:hover .rdg-row-index {
+        display: none;
+      }
+
+      .react-grid-Row:hover .rdg-actions-checkbox {
+        display: block;
+      }
+
+      .react-grid-Row:hover .rdg-drag-row-handle {
+        cursor: move; /* fallback if grab cursor is unsupported */
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        width: 12px;
+        height: 30px;
+        margin-left: 0px;
+        background-image: url("data:image/svg+xml;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjlweCIgaGVpZ2h0PSIyOXB4IiB2aWV3Qm94PSIwIDAgOSAyOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMzkgKDMxNjY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5kcmFnIGljb248L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQWN0dWFsaXNhdGlvbi12MiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRlc2t0b3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNS4wMDAwMDAsIC0yNjIuMDAwMDAwKSIgZmlsbD0iI0Q4RDhEOCI+CiAgICAgICAgICAgIDxnIGlkPSJJbnRlcmFjdGlvbnMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LjAwMDAwMCwgMjU4LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlJvdy1Db250cm9scyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9ImRyYWctaWNvbiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMTIiIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iNyIgY3k9IjEyIiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0zMCIgY3g9IjIiIGN5PSIxNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iMTciIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iMiIgY3k9IjIyIiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0zMCIgY3g9IjciIGN5PSIyMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMjciIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iNyIgY3k9IjI3IiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==");
+        background-repeat: no-repeat;
+      }
+
+      .react-grid-Row.row-selected {
+        background-color: #dbecfa;
+      }
+
+      .react-grid-Row .row-selected {
+        background-color: #dbecfa;
+      }
+
+      .react-grid-row-group .row-expand-icon:hover {
+        color: #777777;
+      }
+
+      .react-grid-row-index {
+        padding: 0 18px;
+      }
+
+      .rdg-row-index {
+        display: block;
+        text-align: center;
+      }
+
+      .rdg-row-actions-cell {
+        padding: 0px;
+      }
+
+      .rdg-actions-checkbox {
+        display: none;
+        text-align: center;
+      }
+
+      .rdg-actions-checkbox.selected {
+        display: block;
+      }
+
+      .rdg-dragging {
+        /*cursor: url(http://www.google.com/intl/en_ALL/mapfiles/closedhand.cur);*/
+        cursor: -webkit-grabbing;
+        cursor: -moz-grabbing;
+        cursor: grabbing;
+      }
+
+      .rdg-dragged-row {
+        border-bottom: 1px solid black;
+      }
+
+      .rdg-scrolling {
+        pointer-events: none;
+      }
+    </style>
+    <style type="text/css">
+      .react-grid-Container {
+        clear: both;
+        margin-top: 0;
+        padding: 0;
+      }
+
+      .react-grid-Main {
+        background-color: #ffffff;
+        color: inherit;
+        padding: 0px;
+        outline: 1px solid #e7eaec;
+        clear: both;
+      }
+
+      .react-grid-Grid {
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .react-grid-Canvas {
+        background-color: #ffffff;
+      }
+    </style>
+    <style type="text/css">
+      .rdg-selected {
+        border: 2px solid #66afe9;
+      }
+
+      .rdg-selected .drag-handle {
+        pointer-events: auto;
+        position: absolute;
+        bottom: -5px;
+        right: -4px;
+        background: #66afe9;
+        width: 8px;
+        height: 8px;
+        border: 1px solid #fff;
+        border-right: 0px;
+        border-bottom: 0px;
+        cursor: crosshair;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        cursor: grab;
+      }
+
+      .rdg-selected:hover .drag-handle {
+        bottom: -8px;
+        right: -7px;
+        background: white;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #66afe9;
+      }
+
+      .rdg-selected:hover .drag-handle .glyphicon-arrow-down {
+        display: "block";
+      }
+
+      .react-grid-cell-dragged-over-up,
+      .react-grid-cell-dragged-over-down {
+        border: 1px dashed black;
+        background: rgba(0, 0, 255, 0.2) !important;
+      }
+
+      .react-grid-cell-dragged-over-up {
+        border-bottom-width: 0;
+      }
+
+      .react-grid-cell-dragged-over-down {
+        border-top-width: 0;
+      }
+
+      .react-grid-cell-copied {
+        background: rgba(0, 0, 255, 0.2) !important;
+      }
+
+      .rdg-editor-container input.editor-main,
+      select.editor-main {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        background-color: #ffffff;
+        background-image: none;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      }
+
+      input.editor-main:focus,
+      select.editor-main:focus {
+        border-color: #66afe9;
+        border: 2px solid #66afe9;
+        background: #eee;
+        border-radius: 4px;
+      }
+
+      .rdg-editor-container input.editor-main::-moz-placeholder,
+      select.editor-main::-moz-placeholder {
+        color: #999999;
+        opacity: 1;
+      }
+
+      .rdg-editor-container input.editor-main:-ms-input-placeholder,
+      select.editor-main:-ms-input-placeholder {
+        color: #999999;
+      }
+
+      .rdg-editor-container input.editor-main::-webkit-input-placeholder,
+      select.editor-main::-webkit-input-placeholder {
+        color: #999999;
+      }
+
+      .rdg-editor-container input.editor-main[disabled],
+      select.editor-main[disabled],
+      .rdg-editor-container input.editor-main[readonly],
+      select.editor-main[readonly],
+      fieldset[disabled] .rdg-editor-container input.editor-main,
+      fieldset[disabled] select.editor-main {
+        cursor: not-allowed;
+        background-color: #eeeeee;
+        opacity: 1;
+      }
+
+      textarea.rdg-editor-container input.editor-main,
+      textareaselect.editor-main {
+        height: auto;
+      }
+    </style>
+    <style type="text/css">
+      .react-grid-checkbox,
+      .radio-custom {
+        opacity: 0;
+        position: absolute;
+      }
+
+      .react-grid-checkbox,
+      .react-grid-checkbox-label,
+      .radio-custom,
+      .radio-custom-label {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+
+      .react-grid-checkbox-label,
+      .radio-custom-label {
+        position: relative;
+      }
+
+      .react-grid-checkbox + .react-grid-checkbox-label:before,
+      .radio-custom + .radio-custom-label:before {
+        content: "";
+        background: #fff;
+        border: 2px solid #ddd;
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+      }
+
+      .react-grid-checkbox:checked + .react-grid-checkbox-label:before {
+        background: #005295;
+        box-shadow: inset 0px 0px 0px 4px #fff;
+      }
+
+      .react-grid-checkbox:focus + .react-grid-checkbox-label,
+      .radio-custom:focus + .radio-custom-label {
+        outline: 1px solid #ddd; /* focus style */
+      }
+
+      .react-grid-HeaderCell input[type="checkbox"] {
+        z-index: 99999;
+      }
+      .react-grid-HeaderCell > .react-grid-checkbox-container {
+        padding: 0px 10px;
+        height: 100%;
+      }
+
+      .react-grid-HeaderCell
+        > .react-grid-checkbox-container
+        > .react-grid-checkbox-label {
+        margin: 0;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .radio-custom + .radio-custom-label:before {
+        border-radius: 50%;
+      }
+
+      .radio-custom:checked + .radio-custom-label:before {
+        background: #ccc;
+        box-shadow: inset 0px 0px 0px 4px #fff;
+      }
+
+      .checkbox-align {
+        text-align: center;
+      }
+
+      .timetable-left {
+        float: left;
+      }
+
+      .timetable-right {
+        float: right;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="u0"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.0.16/skins/ui/oxide/skin.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      id="u1"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.0.16/skins/ui/oxide/content.inline.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+  </head>
+
+  <body class="">
+    <style>
+      @font-face {
+        font-family: "Avenir";
+        font-style: normal;
+        font-weight: 300;
+        src: local("Avenir Book"), local("Avenir-Book"),
+          url("/app/build/assets/fonts/Avenir-Book.83fe5df400481f7dc1fc8277c366ab91.woff2")
+            format("woff2"),
+          url("/app/build/assets/fonts/Avenir-Book.538b6b324922bdfd141e931b00406d75.woff")
+            format("woff"),
+          url("/app/build/assets/fonts/Avenir-Book.7837e47ddf5c4500a20262094d099117.eot")
+            format("embedded-opentype"),
+          url("/app/build/assets/fonts/Avenir-Book.d9f644b72aa74e6787228a84a4edf5ca.ttf")
+            format("truetype");
+      }
+
+      @font-face {
+        font-family: "Avenir";
+        font-style: normal;
+        font-weight: 500;
+        src: local("Avenir Medium"), local("Avenir-Medium"),
+          url("/app/build/assets/fonts/Avenir-Medium.8f4e3740ac308e3860b20298d72a01ce.woff2")
+            format("woff2"),
+          url("/app/build/assets/fonts/Avenir-Medium.ccbca1fbc577881d6cb3e1ccd337116b.woff")
+            format("woff"),
+          url("/app/build/assets/fonts/Avenir-Medium.4435cf66bf1d14542637295f431813de.eot")
+            format("embedded-opentype"),
+          url("/app/build/assets/fonts/Avenir-Medium.33f0123452491ec8dd7615000178b42c.ttf")
+            format("truetype");
+      }
+
+      @font-face {
+        font-family: "Avenir";
+        font-style: normal;
+        font-weight: 700;
+        src: local("Avenir Heavy"), local("Avenir-Heavy"),
+          url("/app/build/assets/fonts/Avenir-Heavy.8e2f9927aa301ded355b3665ace1d69a.woff2")
+            format("woff2"),
+          url("/app/build/assets/fonts/Avenir-Heavy.dcb4657b8f48188d74596bafebbc6e23.woff")
+            format("woff"),
+          url("/app/build/assets/fonts/Avenir-Heavy.364588658c6fb2019cf3f5ac3f3322f5.eot")
+            format("embedded-opentype"),
+          url("/app/build/assets/fonts/Avenir-Heavy.26c0325921657d903102f652220490b3.ttf")
+            format("truetype");
+      }
+
+      #loading-overlay {
+        font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #222;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        transition: opacity 0.3s;
+        -webkit-transition: opacity 0.3s;
+        text-align: center;
+        z-index: 1000;
+        opacity: 0;
+      }
+      #loading-overlay.in {
+        opacity: 1;
+      }
+      #loading-overlay.out {
+        opacity: 0;
+      }
+      #loading-logo {
+        max-width: 640px;
+        padding: 0 20px;
+        transform: translate3d(0, 0, 0);
+        line-height: 1.3;
+      }
+      #loading-logo:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      #loading-logo img {
+        vertical-align: middle;
+        width: 80px;
+      }
+      #loading-logo p.quote-by {
+        margin: 0;
+        color: #999;
+      }
+    </style>
+
+    <div id="loading-overlay" class="out" style="display: none">
+      <div id="loading-logo">
+        <h2>“<span id="loading-quote">Welcome to teja's website.</span>”</h2>
+      </div>
+    </div>
+
+    <div id="app">
+      <article class="sc-xOkv fYNLwC">
+        <main class="sc-bsipQr dHFiXW sc-ffoxPn sidrd">
+          <div class="sc-lcTPrS damQna cv-viewer cv-preview">
+            <div class="sc-ezipRf bSkNQK cv-container">
+              <div class="cv-content">
+                <section id="profile" class="vcard profile">
+                  <article data-bind="content" class="">
+                    <div class="user-thumb" data-bind="thumb">
+                      <div
+                        class="css-crop bg-cover"
+                        style="background-image: url('')"
+                      ></div>
+                    </div>
+                    <div class="fn user-title">
+                      <h1 class="full-name" data-bind="full_name">
+                        <span class="sc-hHKmLs nJfnd"
+                          ><span
+                            contenteditable="false"
+                            class="sc-kkeJPq fDHHAn"
+                            >Venkata surya Teja matcha</span
+                          ></span
+                        >
+                      </h1>
+                      <h2 class="title" data-bind="headline">
+                        <span class="sc-hHKmLs nJfnd"
+                          ><span
+                            contenteditable="false"
+                            class="sc-kkeJPq fDHHAn"
+                            >Senior Software Engineer Front End</span
+                          ></span
+                        >
+                      </h2>
+                    </div>
+                    <ul class="user-contact">
+                      <li class="adr locality" data-bind="location">
+                        <span class="sc-hHKmLs nJfnd"
+                          ><span
+                            contenteditable="false"
+                            class="sc-kkeJPq fDHHAn"
+                            >Chennai, TN, India</span
+                          ></span
+                        >
+                      </li>
+                      <li class="phone" data-bind="phone">
+                        <span class="sc-hHKmLs nJfnd"
+                          ><span
+                            contenteditable="false"
+                            class="sc-kkeJPq fDHHAn"
+                            >+91 9176521510</span
+                          ></span
+                        >
+                      </li>
+                      <li class="email" data-bind="email">
+                        <a href="mailto:venkatasurya.tejamatcha@freshworks.com"
+                          >venkatasurya.tejamatcha@freshworks.com</a
+                        >
+                      </li>
+                    </ul>
+                    <ul class="user-links user-websites" data-bind="websites">
+                      <li class="website">
+                        <a
+                          href="https://github.com/MVSTeja91"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          ><i class="fa fa-fw fa-github"></i
+                          >github.com/MVSTeja91</a
+                        >
+                      </li>
+                      <li class="website">
+                        <a
+                          href="https://github.com/MVSTeja"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          ><i class="fa fa-fw fa-github"></i
+                          >github.com/MVSTeja</a
+                        >
+                      </li>
+                    </ul>
+                  </article>
+                </section>
+                <div class="section-sortable content-container">
+                  <section data-bind="sections" id="summary" class="text_story">
+                    <div class="col-sm-4 timetable-left"></div>
+                    <div class="col-sm-8 timetable-right">
+                      <header>
+                        <h3 class="header-text" data-bind="label">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Summary</span
+                            ></span
+                          >
+                        </h3>
+                      </header>
+                    </div>
+                    <article data-bind="content" class="">
+                      <div class="col-sm-4 timetable-left"></div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="sc-khAkjo getKBy">
+                          <div
+                            id="tiny-react_3640460042241610451399213"
+                            class="mce-content-body mce-content-readonly"
+                            spellcheck="true"
+                            contenteditable="false"
+                          >
+                            <p>
+                              Highly efficient results driven and capable
+                              frontend engineer with a proven ability to
+                              effectively develop, and manage development teams.
+                              Having a proven track record of quickly
+                              understanding a frontend feature, prototype, and
+                              objective and then converting this into feature of
+                              a website. Enjoying challenging tasks &amp; able
+                              to work to an excellent standard under
+                              considerable pressure whilst presenting a positive
+                              image to product managers &amp; colleagues.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                  </section>
+                  <section
+                    data-bind="sections"
+                    id="positions"
+                    class="dated_story"
+                  >
+                    <div class="col-sm-4 timetable-left"></div>
+                    <div class="col-sm-8 timetable-right">
+                      <header>
+                        <h3 class="header-text" data-bind="label">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Work Experience</span
+                            ></span
+                          >
+                        </h3>
+                      </header>
+                    </div>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left marked">
+                        <div
+                          data-bind="organization_url"
+                          target="_blank"
+                          rel="noopener nofollow"
+                        >
+                          <h4 data-bind="organization">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Freshworks pvt ltd.
+                              </span></span
+                            >
+                          </h4>
+                        </div>
+                        <h5 class="date-range">
+                          <span data-bind="start_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >11/2018</span
+                              ></span
+                            ></span
+                          ><span data-bind="end_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Present</span
+                              ></span
+                            ></span
+                          >
+                        </h5>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body">
+                          <h4 data-bind="title">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Senior Software Engineer Front-end</span
+                              ></span
+                            >
+                          </h4>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_3534565352251610451399213"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>Freshworks CRM</p>
+                              <ul>
+                                <li>
+                                  My primary work in Freshworks CRM, is in
+                                  developing UI for freddy, the AI assistant.
+                                </li>
+                                <li>
+                                  Some of the ML features, I contributed are :
+                                  <ul>
+                                    <li>
+                                      Deal Insights :- Built a bubble chart for
+                                      deal predictability based on analysis of
+                                      customer sentiment from their feedback,
+                                      sales activity, conversations, etc.
+                                    </li>
+                                    <li>
+                                      Dedupe :- Find duplicate deals, by
+                                      matching deals based on emails, full names
+                                      and company etc.
+                                    </li>
+                                    <li>
+                                      Email calendar suggestions:- UI for
+                                      suggesting to create task, appointment and
+                                      custom sales activities with calendar,
+                                      based on email analysis.
+                                    </li>
+                                    <li>
+                                      Sales sequence email reminder:- UI for
+                                      showing reminders across application,
+                                      based on sales sequence.
+                                    </li>
+                                    <li>
+                                      Contact Scoring:- Show contact score in
+                                      graphical UI state, as well as configure
+                                      the rules for scoring.
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>
+                                  Other responsibilities are -&nbsp;<br />
+                                  <ul>
+                                    <li>
+                                      Conduct and involve in exhaustive peer
+                                      review of PRs.
+                                    </li>
+                                    <li>
+                                      Write integration &amp; unit tests in
+                                      Qunit and maintain the branch coverage at
+                                      more than 95% for the feature.
+                                    </li>
+                                    <li>
+                                      Freshworks CRM app is built on Ember 2.8
+                                      and Ruby on rails.
+                                    </li>
+                                    <li>
+                                      Worked with highcharts library for freddy
+                                      deal insights, namely used 3 chart
+                                      features, i.e bubble chart, heat map and
+                                      area charts.
+                                    </li>
+                                    <li>
+                                      Worked on customizing, ember-power-select
+                                      to have group select with multi-select
+                                      capabilities.
+                                    </li>
+                                    <li>
+                                      Built Freshworks CRM outlook plugin in
+                                      React, with the help of TypeScript and
+                                      Microsoft's UI Fluent library (formerly
+                                      Fabric) which comes with its own CSS-in-JS
+                                      solution, loosely based on React-JSS.
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>
+                                  Participated in Appathon 2019, In which I
+                                  coded the UI for an Interactive Assistant for
+                                  Freshworks CRM, I built speech to text
+                                  recognition and text to speech interface using
+                                  browser inbuilt speech and text APIs.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left marked">
+                        <div
+                          data-bind="organization_url"
+                          target="_blank"
+                          rel="noopener nofollow"
+                        >
+                          <h4 data-bind="organization">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Cognizant</span
+                              ></span
+                            >
+                          </h4>
+                        </div>
+                        <h5 class="date-range">
+                          <span data-bind="start_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >02/2018</span
+                              ></span
+                            ></span
+                          ><span data-bind="end_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >11/2018</span
+                              ></span
+                            ></span
+                          >
+                        </h5>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body">
+                          <h4 data-bind="title">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Senior Associate – Houghton Mifflin
+                                Harcourt</span
+                              ></span
+                            >
+                          </h4>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_6253144322261610451399214"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span>Student Achievement Manager (SAM)</span>
+                              </p>
+                              <ul>
+                                <li>
+                                  Migrating a Flash client Application to React
+                                  based SPA together with Redux-Saga, Immutable
+                                  JS, Jest.
+                                </li>
+                                <li>
+                                  Lead UI development efforts on developing
+                                  Books tab, consisting of customizable search,
+                                  Filtering/Sorting of collection, Quiz
+                                  management.
+                                </li>
+                                <li>
+                                  Lead the team efforts on creating and
+                                  improving jest enzyme test cases.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left marked">
+                        <div
+                          data-bind="organization_url"
+                          target="_blank"
+                          rel="noopener nofollow"
+                        >
+                          <h4 data-bind="organization">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Cognizant</span
+                              ></span
+                            >
+                          </h4>
+                        </div>
+                        <h5 class="date-range">
+                          <span data-bind="start_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >04/2016</span
+                              ></span
+                            ></span
+                          ><span data-bind="end_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >01/2018</span
+                              ></span
+                            ></span
+                          >
+                        </h5>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body">
+                          <h4 data-bind="title">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Senior Associate – Pearson Publications Pvt
+                                Lmtd.
+                              </span></span
+                            >
+                          </h4>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_6412821252271610451399214"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span>Enterprise Admin Dashboard (EAD)</span>
+                              </p>
+                              <ul>
+                                <li>
+                                  Designed, architected and developed EAD, a
+                                  React Single Page App (SPA).
+                                </li>
+                                <li>
+                                  Lead a 5-member team on designing,
+                                  unit-testing and coding the application in
+                                  React, Redux-thunk, Jest and SCSS.
+                                </li>
+                                <li>
+                                  Worked on setting up asynchronous
+                                  routes/Route-based JavaScript chunking,
+                                  through webpack ensure API and code-splitting
+                                  of application code and vendor libraries
+                                  through common-chunks plugin.
+                                </li>
+                                <li>
+                                  Worked on cache-busting of static assets, (JS,
+                                  CSS).
+                                </li>
+                                <li>
+                                  Worked on improving the landing page's time to
+                                  first paint, Reducing the time to first
+                                  interactive by 30%.
+                                </li>
+                                <li>
+                                  Introduced Jest snapshot and unit testing,
+                                  Integrated pre-commit scripts, to check code
+                                  is adhering to ESlint and Stylelint standards
+                                  defined by airbnb and cognizant.
+                                </li>
+                                <li>
+                                  Lead meetings to gather design mockups from UX
+                                  team, discussions are in deciding usability
+                                  and user accessibility features.
+                                </li>
+                                <li>
+                                  Migrated build system from Webpack 1 to
+                                  Webpack 3.
+                                </li>
+                                <li>
+                                  Improved security of the application.(Used
+                                  helmet npm package)
+                                </li>
+                                <li>
+                                  Improved accessibility of the
+                                  app.(Incorporated Ally checks and tools).
+                                </li>
+                                <li>
+                                  I did Proof Of Concept(POC) on EAD to have
+                                  offline capability, cache redundant API
+                                  requests, fast load even over 3G, by using PWA
+                                  architecture(work box)
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left marked">
+                        <div
+                          data-bind="organization_url"
+                          target="_blank"
+                          rel="noopener nofollow"
+                        >
+                          <h4 data-bind="organization">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Cognizant</span
+                              ></span
+                            >
+                          </h4>
+                        </div>
+                        <h5 class="date-range">
+                          <span data-bind="start_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >08/2013</span
+                              ></span
+                            ></span
+                          ><span data-bind="end_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >04/2016</span
+                              ></span
+                            ></span
+                          >
+                        </h5>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body">
+                          <h4 data-bind="title">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Associate – Xerox Corporation
+                              </span></span
+                            >
+                          </h4>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_2517801842281610451399215"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span
+                                  >Medicaid Management Information Systems
+                                  (MMIS)</span
+                                >
+                              </p>
+                              <ul>
+                                <li>
+                                  Build web pages for a healthcare form-based
+                                  SPA in AngularJS.
+                                </li>
+                                <li>
+                                  I converted prototype designs into Angular JS
+                                  code, along the way to integrate UI with web
+                                  services.
+                                </li>
+                                <li>Worked on custom decorator directives.</li>
+                                <li>
+                                  Worked with jQuery and Bootstrap JS to enhance
+                                  the look and feel.
+                                </li>
+                                <li>
+                                  Built a local mock web server based on Node JS
+                                  and Express JS. Which greatly helped improve
+                                  the Team productivity.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                  </section>
+                  <section
+                    data-bind="sections"
+                    id="degrees"
+                    class="dated_story"
+                  >
+                    <div class="col-sm-4 timetable-left"></div>
+                    <div class="col-sm-8 timetable-right">
+                      <header>
+                        <h3 class="header-text" data-bind="label">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Education</span
+                            ></span
+                          >
+                        </h3>
+                      </header>
+                    </div>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left marked">
+                        <div
+                          data-bind="organization_url"
+                          target="_blank"
+                          rel="noopener nofollow"
+                        >
+                          <h4 data-bind="organization">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >IIIT D&amp;M Kancheepuram</span
+                              ></span
+                            >
+                          </h4>
+                        </div>
+                        <h5 class="date-range">
+                          <span data-bind="start_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >2008</span
+                              ></span
+                            ></span
+                          ><span data-bind="end_date"
+                            ><span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >2012</span
+                              ></span
+                            ></span
+                          >
+                        </h5>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body">
+                          <h4 data-bind="title">
+                            <span class="sc-hHKmLs nJfnd"
+                              ><span
+                                contenteditable="false"
+                                class="sc-kkeJPq fDHHAn"
+                                >Bachelor of Engineering</span
+                              ></span
+                            >
+                          </h4>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_7185465482291610451399215"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span data-reactroot=""
+                                  >Electronics Design and Engineering,</span
+                                >
+                              </p>
+                              <p>
+                                <span data-reactroot=""
+                                  ><span data-reactroot=""></span></span
+                                ><br />
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                  </section>
+                  <section
+                    data-bind="sections"
+                    id="strengths"
+                    class="strengths"
+                  >
+                    <div class="col-sm-4 timetable-left"></div>
+                    <div class="col-sm-8 timetable-right">
+                      <header>
+                        <h3 class="header-text" data-bind="label">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Skills</span
+                            ></span
+                          >
+                        </h3>
+                      </header>
+                    </div>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left">
+                        <h4 data-bind="name">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Programming</span
+                            ></span
+                          >
+                        </h4>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body competency">
+                          <div class="competency-bar">
+                            <div
+                              class="competency-level"
+                              data-bind="level"
+                              style="width: 100%"
+                            ></div>
+                          </div>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_4243220812301610451399216"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span
+                                  style="font-weight: 400"
+                                  data-mce-style="font-weight: 400;"
+                                  >Javascript, ES2015/ ES6, React(classes and
+                                  hooks), Redux, Redux-thunk, React-Router,
+                                  Redux-saga, ImmutableJS, Typescript (TS),
+                                  Angular JS, Workbox-SW, PWA, Fetch, Axios,
+                                  Ember, Ember-data, Ember-parachute,
+                                  highcharts, Office UI Fluent (Fabric) React,
+                                  React-Native.</span
+                                >
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left">
+                        <h4 data-bind="name">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Unit-testing</span
+                            ></span
+                          >
+                        </h4>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body competency">
+                          <div class="competency-bar">
+                            <div
+                              class="competency-level"
+                              data-bind="level"
+                              style="width: 100%"
+                            ></div>
+                          </div>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_4771669662311610451399216"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span
+                                  style="font-weight: 400"
+                                  data-mce-style="font-weight: 400;"
+                                  >Jest, Enzyme, Qunit.</span
+                                >
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                    <article data-bind="contents" class="">
+                      <div class="col-sm-4 timetable-left">
+                        <h4 data-bind="name">
+                          <span class="sc-hHKmLs nJfnd"
+                            ><span
+                              contenteditable="false"
+                              class="sc-kkeJPq fDHHAn"
+                              >Tools</span
+                            ></span
+                          >
+                        </h4>
+                      </div>
+                      <div class="col-sm-8 timetable-right">
+                        <div class="article-body competency">
+                          <div class="competency-bar">
+                            <div
+                              class="competency-level"
+                              data-bind="level"
+                              style="width: 100%"
+                            ></div>
+                          </div>
+                          <div class="sc-khAkjo getKBy">
+                            <div
+                              id="tiny-react_6416979662321610451399216"
+                              class="mce-content-body mce-content-readonly"
+                              spellcheck="true"
+                              contenteditable="false"
+                            >
+                              <p>
+                                <span
+                                  style="font-weight: 400"
+                                  data-mce-style="font-weight: 400;"
+                                  >Webpack, Git, BitBucket, JIRA, VS Code,
+                                  Freshrelease.</span
+                                >
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </article>
+                  </section>
+                  <section class="editor-visible">
+                    <div class="col-sm-4 timetable-left"></div>
+                    <div class="col-sm-8 timetable-right">
+                      <div data-bind="add-section-btn">
+                        <span class="sc-hHKmLs nJfnd"
+                          ><span
+                            contenteditable="false"
+                            class="sc-kkeJPq fDHHAn"
+                          ></span
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </section>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </article>
+    </div>
+
+    <!--[if lte IE 8]>
+      <h2 class="text-center">
+        Looks like you are using an older browser,<br />
+        please update your browser to the latest version of Chrome, Safari,
+        Firefox, Windows Edge or IE 11+
+      </h2>
+    <![endif]-->
+
+    <!-- Loading screen -->
+    <script>
+      (function () {
+        var quoteEl = document.getElementById("loading-quote");
+        var quoteByEl = document.getElementById("loading-quote-by");
+
+        var quotes = [
+          ["You look like a million bucks today.", "My own quote"],
+          ["Make yourself proud.", "My own quote"],
+
+          ["Choose courage over comfort.", "Brene Brown"],
+          [
+            "Sometimes the most important and bravest thing you can do is just show up.",
+            "Brene Brown",
+          ],
+
+          ["What would you do if you weren’t afraid?", "Sheryl Sandberg"],
+          [
+            "If you’re offered a seat on a rocket ship, don’t ask what seat. Just get on.",
+            "Sheryl Sandberg",
+          ],
+          ["Careers are a jungle gym, not a ladder.", "Sheryl Sandberg"],
+
+          [
+            "How you climb a mountain is more important than reaching the top.",
+            "Yvon Chouinard",
+          ],
+          [
+            "If everything seems under control, you’re not going fast enough.",
+            "Mario Andretti",
+          ],
+          [
+            "Dude, suckin' at something is the first step to being sorta good at something ",
+            "Jake the adventure dog",
+          ],
+          [
+            "Seize any opportunity, or anything that looks like opportunity. They are rare, much rarer than you think…",
+          ],
+          ["Passion is the result of action, not the cause of it.", "M.Cuban"],
+          ["Today's the youngest you'll ever be. Live like it.", "Mark Cuban"],
+          [
+            "Decide who you are and be that person. The universe will get out of your way.",
+            "Will Smith",
+          ],
+          [
+            "People often say motivation doesn’t last. Neither does bathing—that’s why we recommend it daily.",
+            "Zig Ziglar",
+          ],
+          [
+            "Oh, get a job? Just get a job? Why don't I strap on my job helmet and squeeze down into a job cannon and fire off into job land, where jobs grow on jobbies?!",
+            "Charlie Day",
+          ],
+          [
+            "In the middle of every difficulty lies opportunity.",
+            "Albert Einstein",
+          ],
+          [
+            "It’s not the mountain we conquer, but ourselves.",
+            "Edmund Hillary",
+          ],
+          [
+            "You are never too old to set a new goal or dream a new dream.",
+            "CS Lewis",
+          ],
+          [
+            "Life is not about finding yourself, it’s about creating yourself.",
+            "George Bernard Shaw",
+          ],
+        ];
+
+        var quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        quoteEl.textContent = quote[0];
+        quoteByEl.textContent = quote[1];
+
+        document.getElementById("loading-overlay").className = "in";
+      })();
+    </script>
+  </body>
+</html>
